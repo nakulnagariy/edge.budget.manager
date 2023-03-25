@@ -76,7 +76,7 @@ export class App {
         info: {
           title: 'REST API',
           version: '1.0.0',
-          description: 'Example docs',
+          description: 'Documentation for API (edge.budget.manager)',
         },
       },
       apis: ['swagger.yaml'],
