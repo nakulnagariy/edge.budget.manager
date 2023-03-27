@@ -21,7 +21,7 @@ export class ExpenseService {
     return expense;
   }
 
-  public async createExpense(expense: Expense): Promise<Expense> {
+  public async createExpense(expense: any): Promise<Expense> {
     const newExpense = new ExpenseModel(expense);
     const savedExpense = await newExpense.save();
     return savedExpense;
