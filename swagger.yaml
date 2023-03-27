@@ -352,14 +352,16 @@ definitions:
   ExpenseDto:
     type: "object"
     properties:
-      title:
-        type: "string"
-      category:
-        type: "string"
-      description:
-        type: "string"
       amount:
-        type: "number"
+        type: number
+      date:
+        type: date
+      description:
+        type: string
+      category:
+        type: string
+      comment:
+        type: string
 
   auth:
     type: object

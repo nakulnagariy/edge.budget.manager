@@ -6,6 +6,7 @@ import { Expense } from '@interfaces/expense.interface';
 
 @Service()
 export class ExpenseService {
+  public expenses = ExpenseModel;
   public async findAllExpenses(): Promise<Expense[]> {
     const expenses = await ExpenseModel.find().sort({ date: 'desc' }).exec();
     return expenses;

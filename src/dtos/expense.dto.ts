@@ -4,7 +4,7 @@ enum Category {
   FOOD = 'food',
   TRAVEL = 'travel',
   ENTERTAINMENT = 'entertainment',
-  GROCERY = 'gorcery',
+  GROCERY = 'grocery',
   INVESTMENT = 'investment',
   RENT = 'rent',
   ATTIRE = 'attire',
