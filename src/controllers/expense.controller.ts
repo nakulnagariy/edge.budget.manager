@@ -10,8 +10,8 @@ export class ExpenseController {
   public getExpenses = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const findAllExpenseData: Expense[] = await this.expenseService.findAllExpenses();
-
-      res.status(200).json({ data: findAllExpenseData, message: 'findAll' });
+      const totalExpenseAmount = findAllExpenseData.reduce((total, item) => total + item.amount, 0);
+      res.status(200).json({ data: [...findAllExpenseData, { totalExpenseAmount }], message: 'findAll' });
     } catch (error) {
       next(error);
     }
@@ -27,12 +27,12 @@ export class ExpenseController {
     }
   };
 
-  public createExpense = async (req: Request, res: Response, next: NextFunction) => {
+  public createExpense = async (req: RequestWithUser, res: Response, next: NextFunction) => {
     try {
-      // const user = req.user._id; // get user ID from JWT token
+      const userId = req.user._id; // get user ID from JWT token
       const expenseData: Expense = req.body;
       const newExpenseData = { ...expenseData, date: new Date(expenseData.date).toUTCString() };
-      const createExpenseData: Expense = await this.expenseService.createExpense(newExpenseData);
+      const createExpenseData: Expense = await this.expenseService.createExpense({ ...newExpenseData, user: userId });
       res.status(201).json({ data: createExpenseData, message: 'created' });
     } catch (error) {
       next(error);
