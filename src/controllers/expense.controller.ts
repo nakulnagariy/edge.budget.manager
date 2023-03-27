@@ -7,9 +7,10 @@ import { ExpenseService } from './../services/expense.service';
 export class ExpenseController {
   public expenseService = Container.get(ExpenseService);
 
-  public getExpenses = async (req: Request, res: Response, next: NextFunction) => {
+  public getExpenses = async (req: RequestWithUser, res: Response, next: NextFunction) => {
     try {
-      const findAllExpenseData: Expense[] = await this.expenseService.findAllExpenses();
+      const userId = req.user._id;
+      const findAllExpenseData: Expense[] = await this.expenseService.findAllExpenses(userId);
       const totalExpenseAmount = findAllExpenseData.reduce((total, item) => total + item.amount, 0);
       res.status(200).json({ data: [...findAllExpenseData, { totalExpenseAmount }], message: 'findAll' });
     } catch (error) {
