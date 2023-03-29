@@ -2,6 +2,8 @@ import { IsString, IsNotEmpty, IsEnum, IsNumber, IsDateString } from 'class-vali
 
 enum Category {
   FOOD = 'food',
+  MEDICAL = 'medical',
+  STUDY = 'study',
   TRAVEL = 'travel',
   ENTERTAINMENT = 'entertainment',
   GROCERY = 'grocery',
