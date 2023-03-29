@@ -3,6 +3,6 @@ export interface Expense {
   amount: number;
   date: string;
   description: string;
-  category: 'food' | 'travel' | 'entertainment' | 'gorcery' | 'investment' | 'rent' | 'attire' | 'salary' | 'other';
+  category: 'food' | 'medical' | 'study' | 'travel' | 'entertainment' | 'gorcery' | 'investment' | 'rent' | 'attire' | 'salary' | 'other';
   comment?: string;
 }

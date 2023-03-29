@@ -130,7 +130,7 @@ paths:
         500:
           description: 'Server Error'
 
-# [POST] expenses
+# [POST] expense
     post:
       tags:
       - expense
@@ -149,8 +149,8 @@ paths:
         201:
           description: "Created"
 
-# [GET] expenses/:id
-  /expenses/{id}:
+# [GET] expense/:id
+  /expense/{id}:
     get:
       tags:
       - expense
@@ -168,7 +168,7 @@ paths:
         200:
           description: "OK"
 
-# [PUT] expenses/:id
+# [PUT] expense/:id
     put:
       tags:
       - expense
@@ -192,7 +192,7 @@ paths:
         200:
           description: "OK"
 
-# [DELETE] expenses/:id
+# [DELETE] expense/:id
     delete:
       tags:
       - expense
@@ -210,8 +210,8 @@ paths:
         204:
           description: "No Content"
 
-# [GET] expenses/filter/:category
-  /expenses/filter/{category}:
+# [GET] expense/filter/:category
+  /expense/filter/{category}:
     get:
       tags:
       - expense
@@ -230,7 +230,7 @@ paths:
           description: "OK"
 
 # [GET] expenses/filter/:startDate/:endDate
-  /expenses/filter/{startDate}/{endDate}:
+  /expense/filter/{startDate}/{endDate}:
     get:
       tags:
       - expense
