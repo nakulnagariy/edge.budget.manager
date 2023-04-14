@@ -32,7 +32,7 @@ module.exports = {
       exec_mode: 'cluster', // 'cluster' or 'fork'
       instance_var: 'INSTANCE_ID', // instance variable
       instances: 2, // pm2 instance count
-      autorestart: true, // auto restart if process crash
+      autorestart: false, // auto restart if process crash
       watch: false, // files change automatic restart
       ignore_watch: ['node_modules', 'logs'], // ignore files change
       max_memory_restart: '1G', // restart if process use more than 1G memory
@@ -51,7 +51,7 @@ module.exports = {
       user: 'user',
       host: '0.0.0.0',
       ref: 'origin/master',
-      repo: 'git@github.com:repo.git',
+      repo: 'git@github.com:nakulnagariy/edge.budget.manager.git',
       path: 'dist/server.js',
       'post-deploy': 'npm install && npm run build && pm2 reload ecosystem.config.js --only prod',
     },
