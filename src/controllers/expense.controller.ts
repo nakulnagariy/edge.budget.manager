@@ -12,7 +12,7 @@ export class ExpenseController {
       const userId = req.user._id;
       const findAllExpenseData: Expense[] = await this.expenseService.findAllExpenses(userId);
       const totalExpenseAmount = findAllExpenseData.reduce((total, item) => total + item.amount, 0);
-      res.status(200).json({ data: findAllExpenseData, totalExpenseAmount: totalExpenseAmount, message: 'findAll test' });
+      res.status(200).json({ data: findAllExpenseData, totalExpenseAmount: totalExpenseAmount, message: 'findAll' });
     } catch (error) {
       next(error);
     }
