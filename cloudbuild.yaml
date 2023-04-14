@@ -1,0 +1,21 @@
+steps:
+  # Install Node.js
+  - name: node:14.16.0
+    entrypoint: npm
+    args: ["install"]
+    dir: /workspace
+
+  # Build the application
+  - name: node:14.16.0
+    entrypoint: npm
+    args: ["run", "deploy:prod"]
+    dir: /workspace
+
+  # Deploy the application to App Engine
+  - name: gcr.io/cloud-builders/gcloud
+    args:
+      - app
+      - deploy
+      - --version=0.1.0
+      - --project=uplifted-plate-383115
+      - --quiet
